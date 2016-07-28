@@ -1,0 +1,22 @@
+---
+version: '2'
+
+services:
+  traefik:
+    image: traefik
+    ports:
+        - "80:80"
+        - "8080:8080"
+    volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+        - $TRAEFIK_CONF_FILE:/traefik.toml
+  nodejs-app:
+    build:
+        context: .
+        dockerfile: Dockerfile-nodejs
+    volumes:
+        - $NODEJS_APP:/app
+    labels:
+        - "traefik.backend=nodejs-geoip"
+        - "traefik.frontend.rule=Host:api.flavien-hardy.me"
+        - "traefik.port=3000"
