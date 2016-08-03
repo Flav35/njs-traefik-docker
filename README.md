@@ -4,6 +4,7 @@
 * NodeJS app with a packages.json file (https://docs.npmjs.com/files/package.json)
 * Traefik conf file (https://raw.githubusercontent.com/containous/traefik/master/traefik.sample.toml)
 * docker-compose (https://docs.docker.com/compose/install/)
+
 ## Prepare
 ```bash
 export TRAEFIK_CONF_FILE="traefik.toml"

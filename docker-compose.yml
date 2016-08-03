@@ -13,10 +13,9 @@ services:
   nodejs-app:
     build:
         context: .
-        dockerfile: Dockerfile-nodejs
     volumes:
         - $NODEJS_APP:/app
     labels:
-        - "traefik.backend=nodejs-geoip"
-        - "traefik.frontend.rule=Host:api.flavien-hardy.me"
+        - "traefik.backend=nodejs-app"
+        - "traefik.frontend.rule=Host:e1.example.com"
         - "traefik.port=3000"
