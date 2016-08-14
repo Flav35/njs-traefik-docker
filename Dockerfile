@@ -1,4 +1,4 @@
 FROM readytalk/nodejs:latest
 WORKDIR /app
-RUN npm install -g npm
-CMD /nodejs/bin/npm install && /nodejs/bin/npm start|tee /var/log/app.log
+RUN npm install -g npm && /nodejs/bin/npm install
+ENTRYPOINT /nodejs/bin/npm start
